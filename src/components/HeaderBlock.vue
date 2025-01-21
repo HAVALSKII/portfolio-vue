@@ -4,7 +4,7 @@
       <div class="header__logo">
         <RouterLink to="/" class="logo__link">
           <span class="logo__link-span">@</span>
-          <p class="logo__link-title">dvelx</p>
+          <p class="logo__link-title">HAVALSKI</p>
         </RouterLink>
       </div>
       <nav class="header__nav">

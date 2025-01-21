@@ -12,13 +12,15 @@
             <p class="hero__left-description">
               Я создаю адаптивные веб-сайты, где технологии сочетаются с творчеством.
             </p>
-            <button class="hero__left-btn btn" @click.prevent="openBtn">Contact me !!</button>
+            <button class="hero__left-btn btn" @click.prevent="openBtn">
+              Contact me !!
+            </button>
             <BaseModal v-model:open="open" name-event="home-page">
-              <form action="#" method="post" class="modal__form">
-                <BaseFormText title="Name" placeholder="You name" />
-                <BaseFormText title="Email" placeholder="You email" />
-                <BaseFormTextarea title="Enter you message" placeholder="Enter you message" />
-                <button class="modal-btn btn adaptive">Send</button>
+              <form action="#" method="post" class="modal__form" @submit.prevent="postMail">
+                <BaseFormText title="Name" placeholder="You name" v-model:model-value="nameFormUser" />
+                <BaseFormText title="Email" placeholder="You email" v-model:model-value="nameFormEmail"/>
+                <BaseFormTextarea title="Enter you message" placeholder="Enter you message" v-model:model-value="nameFormText"/>
+                <button class="modal-btn btn adaptive" >Send</button>
               </form>
             </BaseModal>
           </div>
@@ -34,12 +36,51 @@ import BaseModal from '@/components/BaseModal.vue'
 import { ref } from 'vue'
 import BaseFormText from '@/components/BaseFormText.vue'
 import BaseFormTextarea from '@/components/BaseFormTextarea.vue'
+import axios from 'axios'
 
 const open = ref(false)
+const nameFormUser = ref('')
+const nameFormEmail = ref('')
+const nameFormText = ref('')
 
 const openBtn = () => {
   open.value = true
 }
+// template_yjtm762
+//service_i5tv00m
+//Gjky1o-ixuA57XKER
+
+
+const formDataPost = {
+  service_id: 'service_i5tv00m',
+  template_id: 'template_yjtm762',
+  user_id: 'Gjky1o-ixuA57XKER',
+  template_params: {
+    'from_name': nameFormUser,
+    'to_name': nameFormEmail,
+    'message': nameFormText,
+  }
+};
+// $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+//   type: 'POST',
+//   data: JSON.stringify(data),
+//   contentType: 'application/json'
+// }).done(function() {
+//   alert('Your mail is sent!');
+// }).fail(function(error) {
+//   alert('Oops... ' + JSON.stringify(error));
+// });
+
+const postMail = () => {
+   axios.post('https://api.emailjs.com/api/v1.0/email/send-form', {
+    type: 'POST',
+    data: JSON.stringify(formDataPost),
+    contentType: false,
+    processData: false
+  }).then(() => console.log('success', formDataPost))
+}
+
+
 </script>
 
 <style lang="scss">

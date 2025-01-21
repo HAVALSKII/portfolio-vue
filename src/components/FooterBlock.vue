@@ -3,7 +3,7 @@
     <div class="footer__desktop container">
       <div class="footer__wrapper">
         <div class="footer__left">
-          <p class="footer__left-author"><span class="footer__left-span">@</span>dvelx</p>
+          <p class="footer__left-author"><span class="footer__left-span">@</span>HAVALSKI</p>
           <p class="footer__left-text">Front-end developer</p>
         </div>
         <div class="footer__right">
@@ -23,7 +23,7 @@
                 />
               </svg>
             </a>
-            <a href="https://t.me/dvelx" target="_blank" class="footer__right-link">
+            <a href="https://t.me/HAVALSKI" target="_blank" class="footer__right-link">
               <svg
                 width="32"
                 height="32"
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p class="footer__bottom-copyright">© Copyright {{ currentDate }}. Made by dvelx</p>
+        <p class="footer__bottom-copyright">© Copyright {{ currentDate }}. Made by HAVALSKI</p>
       </div>
     </div>
     <div class="footer__mobile container">
